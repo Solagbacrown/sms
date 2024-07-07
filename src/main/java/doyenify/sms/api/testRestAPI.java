@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class testRestAPI {
     @GetMapping("/doyenify")
     public String helloWorld(){
-    return "Welcome to Doyenify Academy!";
+        return "Welcome to Doyenify Academy!";
     }
 }
 
