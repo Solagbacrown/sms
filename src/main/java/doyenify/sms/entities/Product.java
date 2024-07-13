@@ -2,25 +2,28 @@ package doyenify.sms.entities;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Product {
     
-    private String id;
+    private Long id;
     private String name;
     private String description;
     private BigDecimal price;
 
-    public Product(String id, String name, String description, BigDecimal price) {
+    public Product(Long id, String name, String description, BigDecimal price) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
