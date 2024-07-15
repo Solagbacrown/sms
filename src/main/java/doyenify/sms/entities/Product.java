@@ -2,11 +2,14 @@ package doyenify.sms.entities;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Entity;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "product")
 public class Product {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String description;

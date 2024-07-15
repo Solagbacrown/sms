@@ -1,6 +1,5 @@
 package doyenify.sms.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import doyenify.sms.entities.Product;
@@ -9,11 +8,13 @@ import doyenify.sms.repository.ProductRepository;
 
 @Service
 public class ProductService {
-    @Autowired
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
     private ProductRepository productRepository;
 
     public Product getProduct(Long id){
-        return productRepository.getOne(id);
+        return productRepository.findById(id).get();
     }
 
 
