@@ -1,5 +1,8 @@
 package doyenify.sms.service;
 
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import doyenify.sms.entities.Product;
@@ -8,9 +11,7 @@ import doyenify.sms.repository.ProductRepository;
 
 @Service
 public class ProductService {
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
+   @Autowired
     private ProductRepository productRepository;
 
     public Product getProduct(Long id){
@@ -35,4 +36,14 @@ public class ProductService {
     public void savedProduct(Product product) {
         productRepository.saveAndFlush(product);
     }
+
+
+    public void deleteProduct(Long id) {
+       productRepository.deleteById(id);
+    }
+
+
+    public ArrayList<Product> getAllProducts() {
+        return (ArrayList<Product>) productRepository.findAll();
+            }
 }
